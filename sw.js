@@ -1,31 +1,40 @@
-const CACHE_NAME = 'pwa-cache-v1';
-const ASSETS_TO_CACHE = [
+// Nome della cache
+const CACHE_NAME = 'offerteveloci-v1';
+
+// File da mettere in cache
+const URLS_TO_CACHE = [
   '/',
   '/index.html',
-  // aggiungi qui gli asset principali come CSS/JS/immagini:
-  // '/styles.css',
-  // '/app.js'
+  '/offline.html'
 ];
 
+// Installazione
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS_TO_CACHE))
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(URLS_TO_CACHE);
+    })
   );
-  self.skipWaiting();
 });
 
+// Attivazione
 self.addEventListener('activate', event => {
-  // pulizia vecchi cache
   event.waitUntil(
-    caches.keys().then(keys => Promise.all(
-      keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
-    ))
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache);
+          }
+        })
+      );
+    })
   );
-  self.clients.claim();
 });
 
+// Fetch
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request))
+    fetch(event.request).catch(() => caches.match(event.request).then(response => response || caches.match('/offline.html')))
   );
 });
