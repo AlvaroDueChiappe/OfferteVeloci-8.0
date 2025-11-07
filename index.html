@@ -3,36 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
   <title>Offerte Veloci 8.0</title>
 
   <!-- Manifest -->
   <link rel="manifest" href="manifest.json">
-
-  <!-- Icone -->
   <link rel="icon" href="icons/icon-192.png" type="image/png">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
 
-  <!-- Colori -->
+  <!-- Colore tema -->
   <meta name="theme-color" content="#ff4500">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-</head>
 
-<body>
-  <h1>Benvenuto in Offerte Veloci 8.0 🚀</h1>
-  <p>La tua app per scoprire le migliori offerte in tempo reale!</p>
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Offerte Veloci 8.0">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body style="margin:0; padding:0; background:#fff;">
+  <iframe 
+    src="https://www.offerteveloci.it" 
+    style="width:100%; height:100vh; border:none;" 
+    title="Offerte Veloci">
+  </iframe>
 
   <script>
-    // ✅ Registrazione del Service Worker
+    // Registrazione del Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
-          .then(reg => console.log('✅ Service Worker registrato con successo:', reg.scope))
-          .catch(err => console.log('❌ Errore nella registrazione del Service Worker:', err));
+          .then(reg => console.log('✅ Service Worker registrato:', reg.scope))
+          .catch(err => console.log('❌ Errore Service Worker:', err));
       });
     }
   </script>
 </body>
 </html>
-
