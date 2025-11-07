@@ -3,32 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NomeApp</title>
+
+  <title>Offerte Veloci 8.0</title>
 
   <!-- Manifest -->
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.json">
 
-  <!-- Meta per iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <!-- Icone -->
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
 
   <!-- Colori -->
-  <meta name="theme-color" content="#0a84ff">
+  <meta name="theme-color" content="#ff4500">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
+
 <body>
-  <h1>Ciao — questa è la tua PWA!</h1>
-  <p>Contenuto della tua app qui.</p>
+  <h1>Benvenuto in Offerte Veloci 8.0 🚀</h1>
+  <p>La tua app per scoprire le migliori offerte in tempo reale!</p>
 
   <script>
-    // Registrazione service worker
+    // ✅ Registrazione del Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('SW registrato:', reg.scope))
-          .catch(err => console.log('SW non registrato:', err));
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('✅ Service Worker registrato con successo:', reg.scope))
+          .catch(err => console.log('❌ Errore nella registrazione del Service Worker:', err));
       });
     }
   </script>
 </body>
 </html>
+
