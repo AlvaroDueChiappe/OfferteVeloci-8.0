@@ -9,17 +9,29 @@
   <link rel="manifest" href="manifest.json">
 
   <!-- Icone iOS -->
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/icon-120.png">
+
+  <!-- Configurazione iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <!-- Stili base -->
+  <!-- Stili principali -->
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f9f9f9; }
+    h1 { color: #007aff; }
     a.install-button {
-      background-color:#007aff; color:white; font-size:24px; font-weight:bold;
-      padding:18px 35px; border-radius:14px; text-decoration:none; display:inline-block;
-      box-shadow:0 5px 10px rgba(0,0,0,0.2); transition:transform 0.2s ease;
+      background-color:#007aff;
+      color:white;
+      font-size:24px;
+      font-weight:bold;
+      padding:18px 35px;
+      border-radius:14px;
+      text-decoration:none;
+      display:inline-block;
+      box-shadow:0 5px 10px rgba(0,0,0,0.2);
+      transition:transform 0.2s ease;
     }
     a.install-button:hover { transform: scale(1.05); }
     p { font-size:16px; color:#333; margin-top:10px; }
@@ -40,11 +52,11 @@
   </div>
 
   <script>
-    // Registrazione Service Worker
+    // Registrazione Service Worker per offline
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
-      .then(() => console.log('Service Worker registrato'))
-      .catch(err => console.log('Service Worker fallito', err));
+      .then(() => console.log('Service Worker registrato con successo'))
+      .catch(err => console.log('Service Worker non registrato:', err));
     }
   </script>
 </body>
