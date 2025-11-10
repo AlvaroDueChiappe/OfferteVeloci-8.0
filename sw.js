@@ -1,5 +1,5 @@
-const cacheName = 'offerteveloci-cache-v1';
-const filesToCache = [
+const CACHE_NAME = 'offerteveloci-cache-v1';
+const urlsToCache = [
   '/',
   '/index.html',
   '/install-ios.html',
@@ -14,7 +14,9 @@ const filesToCache = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(cacheName).then(cache => cache.addAll(filesToCache))
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(urlsToCache);
+    })
   );
 });
 
