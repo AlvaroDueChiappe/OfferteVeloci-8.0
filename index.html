@@ -5,38 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Offerte Veloci</title>
 
-  <!-- Logo per l'icona -->
-  <link rel="apple-touch-icon" href="../icons/icon-512.png">
+  <!-- Manifest PWA -->
+  <link rel="manifest" href="manifest.json">
 
-  <!-- Manifest e tema -->
-  <link rel="manifest" href="../manifest.json">
-  <meta name="theme-color" content="#007aff">
+  <!-- Icone iOS -->
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+  <!-- Stili base -->
   <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #f4f4f9;
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+    a.install-button {
+      background-color:#007aff; color:white; font-size:24px; font-weight:bold;
+      padding:18px 35px; border-radius:14px; text-decoration:none; display:inline-block;
+      box-shadow:0 5px 10px rgba(0,0,0,0.2); transition:transform 0.2s ease;
     }
-    a {
-      text-decoration: none;
-      color: white;
-      background: #007aff;
-      padding: 15px 25px;
-      border-radius: 12px;
-      font-size: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
+    a.install-button:hover { transform: scale(1.05); }
+    p { font-size:16px; color:#333; margin-top:10px; }
   </style>
 </head>
 <body>
-  <div>
-    <h2>🚀 Avvia Offerte Veloci</h2>
-    <a href="https://www.offerteveloci.it" target="_blank">Apri il sito</a>
+
+  <h1>Offerte Veloci</h1>
+  <p>La tua app per offerte e sconti sempre aggiornati!</p>
+
+  <div style="margin:30px 0;">
+    <a class="install-button" href="install-ios.html" target="_blank">
+      📱 Installa Offerte Veloci su iPhone
+    </a>
+    <p>
+      Tocca qui per vedere come aggiungere <strong>Offerte Veloci</strong> alla schermata Home 📲
+    </p>
   </div>
+
+  <script>
+    // Registrazione Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+      .then(() => console.log('Service Worker registrato'))
+      .catch(err => console.log('Service Worker fallito', err));
+    }
+  </script>
 </body>
 </html>
