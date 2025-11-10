@@ -5,6 +5,9 @@ const filesToCache = [
   '/install-ios.html',
   '/offline.html',
   '/manifest.json',
+  '/icons/icon-120.png',
+  '/icons/icon-152.png',
+  '/icons/icon-180.png',
   '/icons/icon-192.png',
   '/icons/icon-512.png'
 ];
