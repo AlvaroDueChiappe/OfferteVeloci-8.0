@@ -1,39 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Offerte Veloci 8.0</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offerte Veloci</title>
 
-  <!-- Manifest -->
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <!-- Logo per l'icona -->
+  <link rel="apple-touch-icon" href="../icons/icon-512.png">
 
-  <!-- Colore tema -->
-  <meta name="theme-color" content="#ff4500">
+  <!-- Manifest e tema -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#007aff">
 
-  <!-- iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Offerte Veloci 8.0">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-</head>
-<body style="margin:0; padding:0; background:#fff;">
-  <iframe 
-    src="https://www.offerteveloci.it" 
-    style="width:100%; height:100vh; border:none;" 
-    title="Offerte Veloci">
-  </iframe>
-
-  <script>
-    // Registrazione del Service Worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
-          .then(reg => console.log('✅ Service Worker registrato:', reg.scope))
-          .catch(err => console.log('❌ Errore Service Worker:', err));
-      });
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f4f4f9;
     }
-  </script>
+    a {
+      text-decoration: none;
+      color: white;
+      background: #007aff;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h2>🚀 Avvia Offerte Veloci</h2>
+    <a href="https://www.offerteveloci.it" target="_blank">Apri il sito</a>
+  </div>
 </body>
 </html>
